@@ -1,6 +1,4 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -9,23 +7,15 @@
             "command": "echo Hello"
         },
 
-        // save and compile .c
         {
             "label": "save and compile for C",
-
-            // 해당 작업을 프로세스로 진행할 것인지 vscode 내의 shell에서 진행할 것인지
-            "type": "shell",
-            // "type": "process",
-            
+            "type": "shell", 
             "command": "gcc",
-            
-            // "-g": 바이너리 파일에 디버깅 정보 삽입
-            // "-o": 출력파일의 이름을 정의
             "args": [
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/../exe/${fileBasenameNoExtension}.exe"
+                "${fileDirname}/../../exe/${fileBasenameNoExtension}.exe"
             ],
             "problemMatcher": [
                 "$gcc"
@@ -36,11 +26,10 @@
             }
         },
 
-        // run .exe
         {
             "label": "run .exe",
             "type": "shell",
-            "command": "${fileDirname}/../exe/${fileBasenameNoExtension}.exe",
+            "command": "${fileDirname}/../../exe/${fileBasenameNoExtension}.exe",
             "problemMatcher": [
                 "$gcc"
             ],
@@ -50,6 +39,4 @@
             }
         }
     ]
-
-    
 }

@@ -1,5 +1,7 @@
 {
     "markdown.styles": [
         "./css/markdownpad-github.css"
-      ]
+    ],
+
+    "files.encoding": "euckr"
 }
