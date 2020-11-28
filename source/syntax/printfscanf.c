@@ -55,6 +55,9 @@ int main(void) {
     char str[256];
     printf("문자열을 입력하세요 : ");
     
+    // 배열은 크기를 명시해야 한다.
     scanf("%s", str, sizeof(str));
     printf("%s\n", str);
+
+    return 0;
 }
