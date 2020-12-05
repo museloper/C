@@ -1,6 +1,12 @@
 #include <stdio.h>
 
+void swap(int a, int b);
+void swap_addr(int *a, int *b);
+void changeArray(int *prt);
+
 int main(void) {
+    // &는 주소이며, *는 그 주소의 값을 의미한다. 
+
     // 포인터
 
     // [museloper] : 101호 >> 메모리 공간의 주소 
@@ -55,5 +61,71 @@ int main(void) {
     printf("미션맨의 주소 : %d\n", &missionman);
     printf("스파이의 주소 : %d\n", &spy);
 
+    printf("\n");
+
+    // 배열과 포인터
+    int arr[3] = {5, 10, 15};
+    int *ptr = arr;
+    for(int i = 0; i < 3; i++) {
+        printf("배열 arr[%d]의 값 : %d\n", i, arr[i]);
+    }
+
+    for(int i = 0; i < 3; i++) {
+        printf("포인터 ptr[%d]의 값 : %d\n", i, ptr[i]);
+    }
+
+    ptr[0] = 100;
+    ptr[1] = 200;
+    ptr[2] = 300;
+    for(int i = 0; i < 3; i++) {
+        printf("배열 arr[%d]의 값 : %d\n", i, arr[i]); // arr[i] == *(arr + i)
+    }
+
+    for(int i = 0; i < 3; i++) {
+        printf("포인터 ptr[%d]의 값 : %d\n", i, *(ptr + i)); // ptr[i] == *(ptr + i)
+    }
+
+    // swap
+    int a = 10;
+    int b = 20;
+    printf("a의 주소 : %d\n", &a);
+    printf("a의 주소 : %d\n", &b);
+
+    // Call By Value
+    // a와 b의 값을 바꾼다. 
+    printf("swap 함수 전 >> a : %d, b : %d\n", a, b);
+    swap(a, b);
+    printf("swap 함수 후 >> a : %d, b : %d\n", a, b);
+
+    // Call By Reference
+    printf("(주소값 전달) swap 함수 전 >> a : %d, b : %d\n", a, b);
+    swap_addr(&a, &b);
+    printf("(주소값 전달) swap 함수 후 >> a : %d, b : %d\n", a, b);
+    
+    int arr_prt[3] = {10, 20, 30};
+    changeArray(arr_prt);
+    for(int i = 0; i < 3; i++) {
+        printf("%d\n", arr_prt[i]);
+    }
+
     return 0;
+}
+
+void swap(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("swap 함수 내 >> a : %d, b : %d\n", a, b);
+}
+
+void swap_addr(int *a, int *b) {
+
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("(주소값 전달) swap 함수 내 >> a : %d, b : %d\n", *a, *b);
+}
+
+void changeArray(int *prt) {
+    prt[2] = 40;
 }
