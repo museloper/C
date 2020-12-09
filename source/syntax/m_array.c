@@ -40,8 +40,8 @@ int main(void) {
         {1, 2, 3, 4, 5}
     };
 
-    for(int i = 0; i < 5; i++) {
-        for(int j = 0; j < 2; j++) {
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 5; j++) {
             printf("2차원 배열 (%d, %d)의 값 : %d\n", i, j, arr2[i][j]);
         }
         printf("\n");
@@ -65,7 +65,7 @@ int main(void) {
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 2; j++) {
             for(int k = 0; k < 5; k++) {
-                printf("2차원 배열 (%d, %d, %d)의 값 : %d\n", i, j, k, arr3[i][j][k]);
+                printf("3차원 배열 (%d, %d, %d)의 값 : %d\n", i, j, k, arr3[i][j][k]);
             }
             printf("\n");
         }
